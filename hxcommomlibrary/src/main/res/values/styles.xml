@@ -1,0 +1,51 @@
+<resources>
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+
+    <style name="AppThemeNotTranslucent" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorAccent">@color/blue</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>`
+
+
+
+    <style name="SwitchButtonStyle">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>  <!--把该属性改为false即可使menu位置位于toolbar之下-->
+    </style>
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="text_show">
+        <item name="android:textSize">@dimen/activity_show_text_size</item>
+        <item name="android:textColor">@color/color_black_text</item>
+    </style>
+    <style name="text_input">
+        <item name="android:textSize">@dimen/activity_input_text_size</item>
+        <item name="android:textColor">@color/color_gray_text</item>
+    </style>
+
+</resources>
