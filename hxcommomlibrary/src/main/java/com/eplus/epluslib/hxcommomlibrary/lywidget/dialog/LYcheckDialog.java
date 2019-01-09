@@ -5,9 +5,11 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -58,6 +60,14 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
 
     }
 
+    public void setSize(WindowManager windowManager,double widthPresent,double heightPresent){
+        // 将对话框的大小按屏幕大小的百分比设置
+        Display display = windowManager.getDefaultDisplay();
+        WindowManager.LayoutParams lp = this.getWindow().getAttributes();
+        lp.height = (int)(display.getHeight() * heightPresent); //设置宽度
+        lp.width = (int)(display.getWidth() * widthPresent); //设置宽度
+        this.getWindow().setAttributes(lp);
+    }
     public void init(){
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.check_dialog_item, null);
@@ -118,14 +128,16 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
                 Toast.makeText(mContext, "请至少选择一个审核人", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-            clickListenerInterface.doConfirm(user, note_et.getText().toString());
+            if (clickListenerInterface != null)
+                clickListenerInterface.doConfirm(user, note_et.getText().toString());
 
         } else if (i == R.id.bt_bohui) {
-            clickListenerInterface.doReject(note_et.getText().toString());
+            if (clickListenerInterface != null)
+                clickListenerInterface.doReject(note_et.getText().toString());
 
         } else if (i == R.id.bt_cancel) {
-            clickListenerInterface.doCancel();
+            if (clickListenerInterface != null)
+                clickListenerInterface.doCancel();
 
         } else if (i == R.id.bt_unall) {
             unChose();

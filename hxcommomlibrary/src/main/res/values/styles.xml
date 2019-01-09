@@ -1,8 +1,5 @@
 <resources>
-    <style name="menu_labels_style">
-        <item name="android:background">@drawable/fab_label_background</item>
-        <item name="android:textColor">#ffffff</item>
-    </style>
+
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
         <item name="colorAccent">@color/blue</item>
         <item name="android:windowIsTranslucent">true</item>
