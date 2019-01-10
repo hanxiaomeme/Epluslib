@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Epluslib</string>
+    <string name="check_dialog">下级审核人dialog</string>
 </resources>

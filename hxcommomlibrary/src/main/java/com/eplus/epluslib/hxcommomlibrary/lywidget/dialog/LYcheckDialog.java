@@ -138,7 +138,6 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
         } else if (i == R.id.bt_cancel) {
             if (clickListenerInterface != null)
                 clickListenerInterface.doCancel();
-
         } else if (i == R.id.bt_unall) {
             unChose();
 
