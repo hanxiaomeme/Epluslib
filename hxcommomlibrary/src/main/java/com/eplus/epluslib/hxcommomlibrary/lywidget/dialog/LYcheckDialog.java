@@ -31,10 +31,14 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
     private EditText note_et;
     private Button all_bt,sure_bt,bh_bt,cancel_bt,bt_unall;
     private ClickListenerInterface clickListenerInterface;
+    //供选择的人员
     private List user;
+    //选择的人员列表
     private List choseList;
     private LinearLayout user_lin;
     private List<CheckBox> mCheckBoxs;
+    //是否必须勾选人员
+    private boolean isChoseUser = true;
     public interface ClickListenerInterface {
 
         public void doConfirm(List user, String text);
@@ -47,12 +51,17 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
         this.clickListenerInterface = clickListenerInterface;
     }
 
+    public LYcheckDialog(@NonNull Context mContext, List choseList,boolean isChoseUser) {
+        super(mContext);
+        this.mContext = mContext;
+        this.choseList = choseList;
+        this.isChoseUser = isChoseUser;
+    }
     public LYcheckDialog(@NonNull Context mContext, List choseList) {
         super(mContext);
         this.mContext = mContext;
         this.choseList = choseList;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,8 +133,8 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
             allChose();
 
         } else if (i == R.id.bt_sure) {
-            if (user.size() <= 0) {
-                Toast.makeText(mContext, "请至少选择一个审核人", Toast.LENGTH_SHORT).show();
+            if (user.size() <= 0 && isChoseUser) {
+                Toast.makeText(mContext, mContext.getString(R.string.error_dialog_chose), Toast.LENGTH_SHORT).show();
                 return;
             }
             if (clickListenerInterface != null)
