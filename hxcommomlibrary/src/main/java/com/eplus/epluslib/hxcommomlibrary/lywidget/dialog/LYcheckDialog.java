@@ -141,7 +141,8 @@ public class LYcheckDialog extends Dialog implements View.OnClickListener {
         } else if (i == R.id.bt_unall) {
             unChose();
 
-        } else {
+        }
+        else {
         }
     }
 
