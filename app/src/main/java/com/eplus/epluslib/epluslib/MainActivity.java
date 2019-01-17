@@ -1,17 +1,13 @@
 package com.eplus.epluslib.epluslib;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.eplus.epluslib.hxcommomlibrary.lywidget.dialog.LYcheckDialog;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +16,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LYcheckDialog lYcheckDialog;
     private Button checkdialog_bt;
     private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-
-
 
     }
 
@@ -34,14 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mContext = this;
         checkdialog_bt = findViewById(R.id.checkdialog_bt);
         checkdialog_bt.setOnClickListener(this);
-    }
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.checkdialog_bt:
-                fun1();
-                break;
-        }
+
     }
 
     private void fun1(){
@@ -68,5 +56,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(mContext,"驳回："+text,Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.checkdialog_bt:
+                fun1();
+                break;
+        }
     }
 }
